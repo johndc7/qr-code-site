@@ -21,4 +21,4 @@ jobs:
         git config user.name "GitHub Actions"
         git config user.email github-actions@localhost
         git remote set-url origin "https://oauth2:${token}@git.callahtech.com/jcallahan/qr-code-site.git"
-        git push origin master -force
+        git push origin master --force
