@@ -1,0 +1,22 @@
+stages:
+  - build
+  - deploy
+
+build:
+  stage: build
+  script:
+    - npm install
+    - npm run build
+  artifacts:
+    paths:
+      - build
+
+deploy:
+  stage: deploy
+  image: registry.callahtech.com/callahtech/deployment-tools:latest
+  script:
+    - node /app/index.js
+  variables:
+    DEPLOYMENT_SOURCE: dist
+    DEPLOYMENT_DOMAIN: johnnumber.one
+    DEPLOYMENT_PATH: views/greatest-qr-generator-ever-created
