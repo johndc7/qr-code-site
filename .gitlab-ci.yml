@@ -19,4 +19,4 @@ deploy:
   variables:
     DEPLOYMENT_SOURCE: dist
     DEPLOYMENT_DOMAIN: johnnumber.one
-    DEPLOYMENT_PATH: views/greatest-qr-generator-ever-created
+    DEPLOYMENT_PATH: app/static/greatest-qr-generator-ever-created
