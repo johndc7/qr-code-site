@@ -37,14 +37,23 @@ const styles = {
     gap: 1
   },
   qrcode: {
+    paddingTop: 5,
     margin: 'auto',
+    padding: 0,
     maxWidth: '100%'
+  },
+  qrContainer: {
+    display: 'flex',
+    flexDirection: 'column',
+    margin: 'auto',
+    padding: 1,
+    maxWidth: '100%',
+    backgroundColor: "white",
+    textAlign: 'center'
   }
 }
 
 function saveSvg(svg){
-  // return console.log(encodeURI(svg))
-
   let uri = 'data:attachment/svg;charset=utf-8,' + encodeURIComponent(svg);
 
   let downloadLink = document.createElement("a");
@@ -85,7 +94,9 @@ function App() {
             window.location = "https://github.com/johndc7/qr-code-site#readme"
         }} variant="caption">{caption}</Link>
         <Paper elevation={3} sx={styles.paper}>
-          <QRCode ref={codeRef} fgColor={fgColor} bgColor={bgColor} style={styles.qrcode} size={size} value={value || window.location.href}/>
+          <Paper sx={styles.qrContainer}>
+            <QRCode ref={codeRef} fgColor={fgColor} bgColor={bgColor} style={styles.qrcode} size={size} value={value || window.location.href}/>
+          </Paper>
           <TextField value={fgColor} onChange={e => setFgColor('#' + e.target.value.replace('#',''))} label="Foreground Color" autoComplete="none"/>
           <TextField value={bgColor} onChange={e => setBgColor('#' + e.target.value.replace('#',''))} label="Background Color" autoComplete="none"/>
           <Box>
